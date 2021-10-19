@@ -6,24 +6,24 @@ const FormattedMessage = require('react-intl').FormattedMessage;
 const injectIntl = require('react-intl').injectIntl;
 const intlShape = require('react-intl').intlShape;
 
-const render = require('../../../../lib/render.jsx');
-const frameless = require('../../../../lib/frameless');
+const render = require('../../../lib/render.jsx');
+const frameless = require('../../../lib/frameless');
 
-const Avatar = require('../../../../components/avatar/avatar.jsx');
-const Page = require('../../../../components/page/www/page.jsx');
-const Grid = require('../../../../components/grid/grid.jsx');
-const Button = require('../../../../components/forms/button.jsx');
-const FlexRow = require('../../../../components/flex-row/flex-row.jsx');
-const Comment = require('../../../../components/comment/comment.jsx');
-const CountryBlurb = require('../../../../components/country-blurb/country-blurb.jsx');
-const AnnualReportExample = require('../../../../components/annual-report-example/annual-report-example.jsx');
-const TimelineCard = require('../../../../components/timeline-card/timeline-card.jsx');
-const WorldMap = require('../../../../components/world-map/world-map.jsx');
+const Avatar = require('../../../components/avatar/avatar.jsx');
+const Page = require('../../../components/page/www/page.jsx');
+const Grid = require('../../../components/grid/grid.jsx');
+const Button = require('../../../components/forms/button.jsx');
+const FlexRow = require('../../../components/flex-row/flex-row.jsx');
+const Comment = require('../../../components/comment/comment.jsx');
+const CountryBlurb = require('../../../components/country-blurb/country-blurb.jsx');
+const TextAndMediaSnippet = require('../../../components/text-and-media-snippet/text-and-media-snippet.jsx');
+const TimelineCard = require('../../../components/timeline-card/timeline-card.jsx');
+const WorldMap = require('../../../components/world-map/world-map.jsx');
 const CountryUsage = require('./country-usage.json');
 const IndiaProjects = require('./india-projects.json');
-const PeopleGrid = require('../../../../components/people-grid/people-grid.jsx');
+const PeopleGrid = require('../../../components/people-grid/people-grid.jsx');
 const People = require('./people.json');
-const VideoPreview = require('../../../../components/video-preview/video-preview.jsx');
+const VideoPreview = require('../../../components/video-preview/video-preview.jsx');
 const Supporters = require('./supporters.json');
 import {TwitterTweetEmbed} from 'react-twitter-embed';
 
@@ -49,7 +49,7 @@ const SECTION_NAMES = {
     mission: <FormattedMessage id="annualReport.2020.subnavMission" />,
     reach: <FormattedMessage id="annualReport.2020.subnavReach" />,
     themes: <FormattedMessage id="annualReport.2020.subnavThemes" />,
-    directors_message: <FormattedMessage id="annualReport.2020.subnavDirectors_message" />,
+    directors_message: <FormattedMessage id="annualReport.2020.subnavDirectorsMessage" />,
     supporters: <FormattedMessage id="annualReport.2020.subnavSupporters" />,
     team: <FormattedMessage id="annualReport.2020.subnavTeam" />,
     donate: <FormattedMessage id="annualReport.2020.subnavDonate" />
@@ -1053,7 +1053,7 @@ class AnnualReport extends React.Component {
                                         </p>
                                     </div>
                                     <div className="flex-content">
-                                        <AnnualReportExample
+                                        <TextAndMediaSnippet
                                             className="reverse"
                                             title={this.props.intl.formatMessage(
                                                 {id: 'annualReport.2020.connectivityExample1Title'}
@@ -1064,7 +1064,7 @@ class AnnualReport extends React.Component {
                                             type="image"
                                             large_image="/images/annual-report/2020/connectivity/TutorialUI.svg"
                                         />
-                                        <AnnualReportExample
+                                        <TextAndMediaSnippet
                                             className="regular"
                                             title={this.props.intl.formatMessage(
                                                 {id: 'annualReport.2020.connectivityExample2Title'}
@@ -1076,7 +1076,7 @@ class AnnualReport extends React.Component {
                                             video_id="xfh9bvbeik"
                                             large_image="/images/annual-report/2020/connectivity/Getting Started with Scratch video.png"
                                         />
-                                        <AnnualReportExample
+                                        <TextAndMediaSnippet
                                             className="full-width"
                                             title={this.props.intl.formatMessage(
                                                 {id: 'annualReport.2020.connectivityExample3Title'}
@@ -1184,7 +1184,7 @@ class AnnualReport extends React.Component {
                                             <FormattedMessage id="annualReport.2020.adaptationHighlightText3b" />
                                         </p>
                                     </div>
-                                    <div className="video-container">
+                                    <div className="video-container themes">
                                         <MediaQuery minWidth={frameless.tabletPortrait}>
                                             <VideoPreview
                                                 buttonMessage={
@@ -1227,7 +1227,7 @@ class AnnualReport extends React.Component {
                                     </div>
 
                                     <div className="flex-content">
-                                        <AnnualReportExample
+                                        <TextAndMediaSnippet
                                             className="regular"
                                             title={this.props.intl.formatMessage(
                                                 {id: 'annualReport.2020.adaptationHighlightTitle4'}
@@ -1255,11 +1255,11 @@ class AnnualReport extends React.Component {
                                     </div>
                                 </div>
                                 <div className="inner">
-                                    <div className="snapshot bubble adaptation">
-                                        <FormattedMessage id="annualReport.2020.adaptationSnapshot" />
-                                    </div>
                                     <div className="flex-content lg">
-                                        <AnnualReportExample
+                                        <div className="snapshot bubble adaptation">
+                                            <FormattedMessage id="annualReport.2020.adaptationSnapshot" />
+                                        </div>
+                                        <TextAndMediaSnippet
                                             className="regular"
                                             title={this.props.intl.formatMessage(
                                                 {id: 'annualReport.2020.adaptationSnapshot1Title'}
@@ -1272,7 +1272,7 @@ class AnnualReport extends React.Component {
                                         />
                                     </div>
                                     <div className="flex-content lg">
-                                        <AnnualReportExample
+                                        <TextAndMediaSnippet
                                             className="reverse"
                                             title={this.props.intl.formatMessage(
                                                 {id: 'annualReport.2020.adaptationSnapshot2Title'}
@@ -1386,7 +1386,7 @@ class AnnualReport extends React.Component {
                                             <div className="quote-person">
                                                 <Avatar
                                                     alt="angelical avatar"
-                                                    src="/images/annual-report/2020/community/avatar_angelical.jpg"
+                                                    src="https://cdn2.scratch.mit.edu/get_image/user/36591_60x60.png"
                                                 />
                                                 <div>
                                                     <h5>
@@ -1405,7 +1405,7 @@ class AnnualReport extends React.Component {
                                             <div className="quote-person">
                                                 <Avatar
                                                     alt="dlore2009 avatar"
-                                                    src="/images/annual-report/2020/community/avatar_dlore2009.jpg"
+                                                    src="https://cdn2.scratch.mit.edu/get_image/user/61442584_60x60.png"
                                                 />
                                                 <div>
                                                     <h5>
@@ -1443,7 +1443,7 @@ class AnnualReport extends React.Component {
                                             <div className="quote-person">
                                                 <Avatar
                                                     alt="Mechanical_pencil avatar"
-                                                    src="/images/annual-report/2020/community/avatar_Mechanical_pencil.jpg"
+                                                    src="https://cdn2.scratch.mit.edu/get_image/user/176301_60x60.png"
                                                 />
                                                 <div>
                                                     <h5>
@@ -1492,6 +1492,10 @@ class AnnualReport extends React.Component {
                                         image="/images/annual-report/2020/community/Timeline/Images/endofthedecade_sds.jpg"
                                         attribution="project by u/lukiepie2011"
                                     />
+                                    <img
+                                        className="connector left"
+                                        src="/images/annual-report/2020/community/Timeline/lines/jan_apr_line.svg"
+                                    />
                                     <TimelineCard
                                         className="left"
                                         link={this.props.intl.formatMessage(
@@ -1522,6 +1526,10 @@ class AnnualReport extends React.Component {
                                             {id: 'annualReport.2020.yearInReviewCard3Text'}
                                         )}
                                         image="/images/annual-report/2020/community/Timeline/Images/createalong.jpg"
+                                    />
+                                    <img
+                                        className="connector"
+                                        src="/images/annual-report/2020/community/Timeline/lines/apr_may_line.svg"
                                     />
                                     <TimelineCard
                                         className="right"
@@ -1555,6 +1563,10 @@ class AnnualReport extends React.Component {
                                         image="/images/annual-report/2020/community/Timeline/Images/blmvideo.png"
                                         videoId="r1pmlyylye"
                                     />
+                                    <img
+                                        className="connector"
+                                        src="/images/annual-report/2020/community/Timeline/lines/may_jun_line.svg"
+                                    />
                                     <TimelineCard
                                         className="left"
                                         link={this.props.intl.formatMessage(
@@ -1587,6 +1599,10 @@ class AnnualReport extends React.Component {
                                             {id: 'annualReport.2020.yearInReviewCard7Text'}
                                         )}
                                     />
+                                    <img
+                                        className="connector"
+                                        src="/images/annual-report/2020/community/Timeline/lines/jun_jul_line.svg"
+                                    />
                                     <TimelineCard
                                         className="right"
                                         link={this.props.intl.formatMessage(
@@ -1603,6 +1619,10 @@ class AnnualReport extends React.Component {
                                         )}
                                         image="/images/annual-report/2020/community/Timeline/Images/scratchcamp.jpg"
                                         attribution="project by u/LGMammoth"
+                                    />
+                                    <img
+                                        className="connector right"
+                                        src="/images/annual-report/2020/community/Timeline/lines/jul_oct_line.svg"
                                     />
                                     <TimelineCard
                                         className="center"
@@ -1645,7 +1665,7 @@ class AnnualReport extends React.Component {
                                     />
                                 </div>
                                 <div className="initiatives-subsection-content">
-                                    <div className="inner">
+                                    <div className="inner community">
                                         <div className="community-quotes">
                                             <div className="community-quote">
                                                 <div className="quote-person">
@@ -1675,9 +1695,9 @@ class AnnualReport extends React.Component {
                                                 <div className="snapshot bubble community">
                                                     <FormattedMessage id="annualReport.2020.adaptationSnapshot" />
                                                 </div>
-                                                <h2>
+                                                <h5>
                                                     <FormattedMessage id="annualReport.2020.communitySnapshotTitle" />
-                                                </h2>
+                                                </h5>
                                                 <p>
                                                     <FormattedMessage id="annualReport.2020.communitySnapshotText" />
                                                 </p>
@@ -1687,9 +1707,9 @@ class AnnualReport extends React.Component {
                                             </div>
                                         </div>
                                         <div className="world">
-                                            <h2>
+                                            <h5>
                                                 <FormattedMessage id="annualReport.2020.communitySnapshot2Title" />
-                                            </h2>
+                                            </h5>
                                             <p>
                                                 <FormattedMessage id="annualReport.2020.communitySnapshot2Text" />
                                             </p>
@@ -1698,8 +1718,9 @@ class AnnualReport extends React.Component {
                                             <div className="sds-list">
                                                 <div className="sds-tile">
                                                     <a
-                                                        href="/studios/6234813/"
+                                                        href="https://www.youtube.com/watch?v=eekrc3Xs9Z0"
                                                         target="_blank"
+                                                        rel="noopener noreferrer"
                                                     >
                                                         <img
                                                             src="/images/annual-report/2020/community/tutorials_virtualtown.jpg"
@@ -1709,8 +1730,9 @@ class AnnualReport extends React.Component {
                                                 </div>
                                                 <div className="sds-tile">
                                                     <a
-                                                        href="/studios/5801323/"
+                                                        href="https://www.youtube.com/watch?v=7NN5v2wSL4U"
                                                         target="_blank"
+                                                        rel="noopener noreferrer"
                                                     >
                                                         <img
                                                             src="/images/annual-report/2020/community/tutorials_catchgame.jpg"
@@ -1720,8 +1742,9 @@ class AnnualReport extends React.Component {
                                                 </div>
                                                 <div className="sds-tile">
                                                     <a
-                                                        href="/studios/5702799/"
+                                                        href="https://www.youtube.com/watch?v=-3oCdNIeU_8"
                                                         target="_blank"
+                                                        rel="noopener noreferrer"
                                                     >
                                                         <img
                                                             src="/images/annual-report/2020/community/tutorials_characterdesigner.jpg"
@@ -1731,8 +1754,9 @@ class AnnualReport extends React.Component {
                                                 </div>
                                                 <div className="sds-tile">
                                                     <a
-                                                        href="/studios/5944573/"
+                                                        href="https://www.youtube.com/watch?v=irhNLRWwhv0"
                                                         target="_blank"
+                                                        rel="noopener noreferrer"
                                                     >
                                                         <img
                                                             src="/images/annual-report/2020/community/tutorials_virtualpet.jpg"
@@ -2004,12 +2028,12 @@ class AnnualReport extends React.Component {
                                     <PeopleGrid
                                         linkToNewTab
                                         people={[{
-                                            userName: 'Champ99',
-                                            userId: 900283,
-                                            name: 'Champika'
+                                            userName: 'Onyx45',
+                                            userId: 63526043,
+                                            name: 'Shawna'
                                         }]}
                                     />
-                                    <FormattedMessage id="annualReport.2020.leadershipInterim" />
+                                    <FormattedMessage id="annualReport.2020.leadershipED" />
                                 </div>
                                 <PeopleGrid
                                     linkToNewTab
